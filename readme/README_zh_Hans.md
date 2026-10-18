@@ -4,7 +4,7 @@
 
 ## 安装
 
-已有[GitHub预览wheel/sdist](https://github.com/AceDataCloud/HappyHorseCrewAI/releases/tag/v0.1.0-preview.1)，源码仍在审阅；尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/HappyHorseCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
+已有[GitHub预览wheel/sdist](https://github.com/AceDataCloud/HappyHorseCrewAI/releases/tag/v0.1.0-preview.2)，源码仍在审阅；尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/HappyHorseCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
 
 ```bash
 uv add 'crewai-happyhorse @ git+https://github.com/AceDataCloud/HappyHorseCrewAI.git@62936c47d3aa1d73787ae884e4e8985fe35c14f9'
@@ -14,10 +14,10 @@ uv add 'crewai-happyhorse @ git+https://github.com/AceDataCloud/HappyHorseCrewAI
 
 
 ```bash
-uv add 'crewai-happyhorse @ https://github.com/AceDataCloud/HappyHorseCrewAI/releases/download/v0.1.0-preview.1/crewai_happyhorse-0.1.0-py3-none-any.whl#sha256=501d1e8b96a32ab2d7cb1278e04775b1777b7f55e45f3bf4262bf042472d9027'
+uv add 'crewai-happyhorse @ https://github.com/AceDataCloud/HappyHorseCrewAI/releases/download/v0.1.0-preview.2/crewai_happyhorse-0.1.0-py3-none-any.whl#sha256=440103c1eecc2ee6bdacd740ef83762b366bbba281d430e6286dba2b637260d8'
 ```
 
-历史preview.1 wheel来自原源码fb9afa391146fa482cd47eca51698e8ad7f427f8，上方推荐源码为含终态修复的新SHA62936c47d3aa1d73787ae884e4e8985fe35c14f9，二者分别记录，URL强制SHA256校验；若附件被替换必须摘要失败。release页面/tag仅提供信息，不作信任锚。
+修复版preview.2 wheel与上方固定源码来自同一终态修复SHA 62936c47d3aa1d73787ae884e4e8985fe35c14f9，历史preview.1保留不变，URL强制SHA256校验；若附件被替换必须摘要失败。release页面/tag仅提供信息，不作信任锚。
 
 ## 注册登录、General application和专用Token
 
@@ -110,4 +110,4 @@ uv run python examples/query_existing.py YOUR_EXISTING_TASK_ID
 
 开发：uv sync --group dev；uv run pytest；uv run ruff check .；uv build。测试Mock收费HTTP，真实Agent/Task/Crew使用本地确定性模型，不冒充真实AI决策。合同固定来源见tests/contract-source.json。
 
-最新固定源码已修正finished_at写入前的明确失败判断；旧preview.1作为历史不变附件保留，建议用当前固定源码取得修复。
+当前固定源码及preview.2均已修正finished_at写入前的明确失败判断；旧preview.1保留不变，请使用上方固定修复版。
