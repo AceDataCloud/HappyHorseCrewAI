@@ -1,0 +1,23 @@
+{
+  "repo": "HappyHorseCrewAI",
+  "slug": "happyhorse",
+  "package": "crewai-happyhorse",
+  "module": "happyhorse_crewai",
+  "generate_class": "HappyHorseGenerateVideoTool",
+  "retrieve_class": "HappyHorseRetrieveTaskTool",
+  "media": "video",
+  "generation_path": "/happyhorse/videos",
+  "task_path": "/happyhorse/tasks",
+  "dify_repo": "HappyHorseDify",
+  "dify_sha": "ebcbfb0db4fa8261918055c2f286edd1f510dc7b",
+  "contract_key": "happyhorse_generate_video",
+  "example_model": "happyhorse-1.1-t2v",
+  "example_input": {
+    "model": "happyhorse-1.1-t2v",
+    "prompt": "A calm sunrise over a mountain lake",
+    "resolution": "720P",
+    "ratio": "16:9",
+    "duration": 3
+  },
+  "name": "HappyHorse"
+}
