@@ -4,13 +4,20 @@
 
 ## 安装
 
-源码/预览包正在准备，尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/HappyHorseCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
+已有[GitHub预览wheel/sdist](https://github.com/AceDataCloud/HappyHorseCrewAI/releases/tag/v0.1.0-preview.1)，源码仍在审阅；尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/HappyHorseCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
 
 ```bash
-uv add 'crewai-happyhorse @ git+https://github.com/AceDataCloud/HappyHorseCrewAI.git@REVIEWED_COMMIT'
+uv add 'crewai-happyhorse @ git+https://github.com/AceDataCloud/HappyHorseCrewAI.git@fb9afa391146fa482cd47eca51698e8ad7f427f8'
 ```
 
 正式PyPI发布后目标为 `uv add crewai-happyhorse`，目前不要假设可用。Python3.10–3.13；Intel macOS可能缺CrewAI强制依赖lancedb wheel，正式使用选择受支持Linux，不跳依赖伪装正常安装。
+
+
+```bash
+uv add 'crewai-happyhorse @ https://github.com/AceDataCloud/HappyHorseCrewAI/releases/download/v0.1.0-preview.1/crewai_happyhorse-0.1.0-py3-none-any.whl#sha256=501d1e8b96a32ab2d7cb1278e04775b1777b7f55e45f3bf4262bf042472d9027'
+```
+
+预览wheel来自同一固定源码SHA，URL强制SHA256校验；若附件被替换必须摘要失败。release页面/tag仅提供信息，不作信任锚。
 
 ## 注册登录、General application和专用Token
 
