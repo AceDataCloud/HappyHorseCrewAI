@@ -4,22 +4,23 @@ Independent native **HappyHorse** video tools for CrewAI. Provided by **Ace Data
 
 [简体中文](readme/README_zh_Hans.md) · [Current models and prices](https://platform.acedata.cloud/models?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=happyhorsecrewai_readme_pricing)
 
-## 1. Install the correct service package
+## 1. Install the stable release
 
-Review-preview source and a [GitHub wheel/sdist prerelease](https://github.com/AceDataCloud/HappyHorseCrewAI/releases/tag/v0.1.0-preview.2) are available; implementation remains under review. **Not yet PyPI-published or listed in the official CrewAI / AMP catalog.** The source version below is pinned to `62936c47d3aa1d73787ae884e4e8985fe35c14f9`. Do not treat a repository as an official listing.
-
-```bash
-uv add 'crewai-happyhorse @ git+https://github.com/AceDataCloud/HappyHorseCrewAI.git@62936c47d3aa1d73787ae884e4e8985fe35c14f9'
-```
-
-The pinned SHA is the version published in the review preview; inspect [source PR #1](https://github.com/AceDataCloud/HappyHorseCrewAI/pull/1) before adoption. After verified PyPI publication the standard command will be `uv add crewai-happyhorse`; do not assume it works before publication. CrewAI supports Python 3.10–3.13. Intel macOS may lack its mandatory lancedb wheel; use supported Linux rather than bypassing dependencies for production.
-
+The Ace-maintained **HappyHorse** native CrewAI tools are merged on main and released as **0.1.0**. This is a standalone service package. It is **not an official CrewAI/AMP catalog listing**, and no PyPI publication is claimed yet. Install the public wheel with its exact SHA256:
 
 ```bash
-uv add 'crewai-happyhorse @ https://github.com/AceDataCloud/HappyHorseCrewAI/releases/download/v0.1.0-preview.2/crewai_happyhorse-0.1.0-py3-none-any.whl#sha256=440103c1eecc2ee6bdacd740ef83762b366bbba281d430e6286dba2b637260d8'
+uv add 'crewai-happyhorse @ https://github.com/AceDataCloud/HappyHorseCrewAI/releases/download/v0.1.0/crewai_happyhorse-0.1.0-py3-none-any.whl#sha256=a8f111bcec1be13c8c7cae792c6301cb5c651bc5d11eb00a44241659b3d95c92'
 ```
 
-The fixed preview.2 wheel was built from the same terminal-state-verified source `62936c47d3aa1d73787ae884e4e8985fe35c14f9` used by the pinned source install. Historical preview.1 is retained unchanged. SHA256 must match; the mutable release page/tag is informational, not a trust anchor.
+Or install the exact merged source:
+
+```bash
+uv add 'crewai-happyhorse @ git+https://github.com/AceDataCloud/HappyHorseCrewAI.git@700945e95b53786329f16e722d61b6af4b3d1c1b'
+```
+
+[Stable release](https://github.com/AceDataCloud/HappyHorseCrewAI/releases/tag/v0.1.0) · [Merged source](https://github.com/AceDataCloud/HappyHorseCrewAI/commit/700945e95b53786329f16e722d61b6af4b3d1c1b). Tags and pages are informational; the immutable source SHA or wheel SHA256 binds the artifact. Historical previews remain unchanged and are not the recommended version. When an existing authorized PyPI publisher can publish after the shared new-project quota resets, the normal `uv add crewai-happyhorse` command will become available; do not assume publication before registry readback.
+
+CrewAI requires Python3.10–3.13. Complete Linux installation, tests and clean-wheel checks passed. Intel macOS may lack the mandatory lancedb wheel; use a supported Linux environment instead of skipping dependencies for production.
 
 ## 2. Register / sign in and get your own API Token
 
@@ -114,5 +115,3 @@ The code is free; media generation and the LLM you configure have their current 
 Provided prompts/references and the consumer Token are sent to `api.acedata.cloud` over HTTPS. The package adds no telemetry or tracing; CrewAI/your LLM may have separate settings. [Privacy](PRIVACY.md). [Source](https://github.com/AceDataCloud/HappyHorseCrewAI) · [Issues](https://github.com/AceDataCloud/HappyHorseCrewAI/issues) · dev@acedata.cloud
 
 Development: `uv sync --group dev`, `uv run pytest`, `uv run ruff check .`, `uv build`. Paid HTTP is mocked in tests; native Agent/Task/Crew cycles use a deterministic local model fixture. See `tests/contract-source.json` for immutable service contract provenance and `tests/live-readonly-evidence.json` when an old-task check is available. No new paid request runs in CI.
-
-The pinned source and preview.2 include explicit failed-state handling before finished_at. Historical preview.1 remains unchanged; use the pinned fixed version above.
