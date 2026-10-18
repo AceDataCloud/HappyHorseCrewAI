@@ -2,24 +2,25 @@
 
 Independent native **HappyHorse** video tools for CrewAI. Provided by **Ace Data Cloud**, not an official HappyHorse or CrewAI product. This is a standalone service package; no all-services bundle or generic provider setup is required.
 
-[简体中文](https://github.com/AceDataCloud/HappyHorseCrewAI/blob/8ca29545795337b5aed0cf0759d5da11fe91ca69/readme/README_zh_Hans.md) · [Current models and prices](https://platform.acedata.cloud/models?utm_source=pypi&utm_medium=referral&utm_campaign=evergreen&utm_content=happyhorsecrewai_package_pricing)
+[简体中文](https://github.com/AceDataCloud/HappyHorseCrewAI/blob/700945e95b53786329f16e722d61b6af4b3d1c1b/readme/README_zh_Hans.md) · [Current models and prices](https://platform.acedata.cloud/models?utm_source=pypi&utm_medium=referral&utm_campaign=evergreen&utm_content=happyhorsecrewai_package_pricing)
 
-## 1. Install the correct service package
+## 1. Install the stable release
 
-Review-preview source and a [GitHub wheel/sdist prerelease](https://github.com/AceDataCloud/HappyHorseCrewAI/releases/tag/v0.1.0-preview.2) are available; implementation remains under review. **Not yet PyPI-published or listed in the official CrewAI / AMP catalog.** The source version below is pinned to `62936c47d3aa1d73787ae884e4e8985fe35c14f9`. Do not treat a repository as an official listing.
-
-```bash
-uv add 'crewai-happyhorse @ git+https://github.com/AceDataCloud/HappyHorseCrewAI.git@62936c47d3aa1d73787ae884e4e8985fe35c14f9'
-```
-
-The pinned SHA is the version published in the review preview; inspect [source PR #1](https://github.com/AceDataCloud/HappyHorseCrewAI/pull/1) before adoption. After verified PyPI publication the standard command will be `uv add crewai-happyhorse`; do not assume it works before publication. CrewAI supports Python 3.10–3.13. Intel macOS may lack its mandatory lancedb wheel; use supported Linux rather than bypassing dependencies for production.
-
+The Ace-maintained **HappyHorse** native CrewAI tools are merged on main and released as **0.1.0**. This is a standalone service package. It is **not an official CrewAI/AMP catalog listing**, and no PyPI publication is claimed yet. Install the public wheel with its exact SHA256:
 
 ```bash
-uv add 'crewai-happyhorse @ https://github.com/AceDataCloud/HappyHorseCrewAI/releases/download/v0.1.0-preview.2/crewai_happyhorse-0.1.0-py3-none-any.whl#sha256=440103c1eecc2ee6bdacd740ef83762b366bbba281d430e6286dba2b637260d8'
+uv add 'crewai-happyhorse @ https://github.com/AceDataCloud/HappyHorseCrewAI/releases/download/v0.1.0/crewai_happyhorse-0.1.0-py3-none-any.whl#sha256=a8f111bcec1be13c8c7cae792c6301cb5c651bc5d11eb00a44241659b3d95c92'
 ```
 
-The fixed preview.2 wheel was built from the same terminal-state-verified source `62936c47d3aa1d73787ae884e4e8985fe35c14f9` used by the pinned source install. Historical preview.1 is retained unchanged. SHA256 must match; the mutable release page/tag is informational, not a trust anchor.
+Or install the exact merged source:
+
+```bash
+uv add 'crewai-happyhorse @ git+https://github.com/AceDataCloud/HappyHorseCrewAI.git@700945e95b53786329f16e722d61b6af4b3d1c1b'
+```
+
+[Stable release](https://github.com/AceDataCloud/HappyHorseCrewAI/releases/tag/v0.1.0) · [Merged source](https://github.com/AceDataCloud/HappyHorseCrewAI/commit/700945e95b53786329f16e722d61b6af4b3d1c1b). Tags and pages are informational; the immutable source SHA or wheel SHA256 binds the artifact. Historical previews remain unchanged and are not the recommended version. When an existing authorized PyPI publisher can publish after the shared new-project quota resets, the normal `uv add crewai-happyhorse` command will become available; do not assume publication before registry readback.
+
+CrewAI requires Python3.10–3.13. Complete Linux installation, tests and clean-wheel checks passed. Intel macOS may lack the mandatory lancedb wheel; use a supported Linux environment instead of skipping dependencies for production.
 
 ## 2. Register / sign in and get your own API Token
 
@@ -27,13 +28,13 @@ The fixed preview.2 wheel was built from the same terminal-state-verified source
 2. Open **General application**, check **HappyHorse** service access, current model price and balance. A service-specific application can only use its entitled service.
 3. Copy the selected API Key using icon **1**, or **Manage Keys** **2** → **Create** for a separate `HappyHorse CrewAI` key.
 
-![Copy Key or open Manage Keys; authentic screenshot with credentials redacted](https://raw.githubusercontent.com/AceDataCloud/HappyHorseCrewAI/62936c47d3aa1d73787ae884e4e8985fe35c14f9/assets/tutorial/get-api-key-en.png)
+![Copy Key or open Manage Keys; authentic screenshot with credentials redacted](https://raw.githubusercontent.com/AceDataCloud/HappyHorseCrewAI/700945e95b53786329f16e722d61b6af4b3d1c1b/assets/tutorial/get-api-key-en.png)
 
 4. Configure expiration and usage limits only as needed. If **Allowed APIs** is enabled, include both `/happyhorse/videos` and `/happyhorse/tasks`.
 
-![Create a separate credential; historical example name](https://raw.githubusercontent.com/AceDataCloud/HappyHorseCrewAI/62936c47d3aa1d73787ae884e4e8985fe35c14f9/assets/tutorial/create-api-key-en.png)
+![Create a separate credential; historical example name](https://raw.githubusercontent.com/AceDataCloud/HappyHorseCrewAI/700945e95b53786329f16e722d61b6af4b3d1c1b/assets/tutorial/create-api-key-en.png)
 
-Historical authentic Ace screenshots reused unchanged from SunoDify commit `8d3d03570e73324220f111f7fe343da0792a8071`, retrieved 2026-10-18. The second image's old name `Dify tutorial` is an example only: use `HappyHorse CrewAI`. No visible real credential is included; [image sources](https://raw.githubusercontent.com/AceDataCloud/HappyHorseCrewAI/62936c47d3aa1d73787ae884e4e8985fe35c14f9/assets/tutorial/source.json).
+Historical authentic Ace screenshots reused unchanged from SunoDify commit `8d3d03570e73324220f111f7fe343da0792a8071`, retrieved 2026-10-18. The second image's old name `Dify tutorial` is an example only: use `HappyHorse CrewAI`. No visible real credential is included; [image sources](https://raw.githubusercontent.com/AceDataCloud/HappyHorseCrewAI/700945e95b53786329f16e722d61b6af4b3d1c1b/assets/tutorial/source.json).
 
 Set the raw consumer Token in environment variable `ACEDATACLOUD_API_KEY` through secure terminal input or a secret manager. It is not a `platform-...` management Token and must not include `Bearer `, spaces or quotation marks. Never place it in prompts, screenshots, committed `.env` or workflow exports. `api_key=...` may be supplied from secure credential storage and is excluded from serialization.
 
@@ -93,7 +94,7 @@ The query is `POST /happyhorse/tasks` with `action=retrieve,id=...`. A completed
 
 ## 5. Inspect execution and output
 
-![Official historical CrewAI execution trace; not this service or Ace runtime evidence](https://raw.githubusercontent.com/AceDataCloud/HappyHorseCrewAI/62936c47d3aa1d73787ae884e4e8985fe35c14f9/assets/tutorial/official-crewai-tracing.png)
+![Official historical CrewAI execution trace; not this service or Ace runtime evidence](https://raw.githubusercontent.com/AceDataCloud/HappyHorseCrewAI/700945e95b53786329f16e722d61b6af4b3d1c1b/assets/tutorial/official-crewai-tracing.png)
 
 Official [CrewAI tracing reference](https://docs.crewai.com/en/observability/tracing), historical date marker 10/1/2025, capture version unspecified; retrieved 2026-10-18. Left: task and tool timeline; right: expanded Response output, not input. **Not this package running, not an Ace task and not a promised new GUI.** Trace account/auth/consent is optional and not enabled by this package. For your actual run inspect the named tool and its returned terminal fields; never expose Token or private media URLs in screenshots.
 
@@ -111,8 +112,6 @@ Official [CrewAI tracing reference](https://docs.crewai.com/en/observability/tra
 
 The code is free; media generation and the LLM you configure have their current prices. No payment handler, fallback or automatic paid HTTP retry is added. Original Credits cost follows the API's current package/account rate and discounts; this package does not hard-code USD conversion. No install/CI count is presented as users or revenue.
 
-Provided prompts/references and the consumer Token are sent to `api.acedata.cloud` over HTTPS. The package adds no telemetry or tracing; CrewAI/your LLM may have separate settings. [Privacy](https://github.com/AceDataCloud/HappyHorseCrewAI/blob/8ca29545795337b5aed0cf0759d5da11fe91ca69/PRIVACY.md). [Source](https://github.com/AceDataCloud/HappyHorseCrewAI) · [Issues](https://github.com/AceDataCloud/HappyHorseCrewAI/issues) · dev@acedata.cloud
+Provided prompts/references and the consumer Token are sent to `api.acedata.cloud` over HTTPS. The package adds no telemetry or tracing; CrewAI/your LLM may have separate settings. [Privacy](https://github.com/AceDataCloud/HappyHorseCrewAI/blob/700945e95b53786329f16e722d61b6af4b3d1c1b/PRIVACY.md). [Source](https://github.com/AceDataCloud/HappyHorseCrewAI) · [Issues](https://github.com/AceDataCloud/HappyHorseCrewAI/issues) · dev@acedata.cloud
 
 Development: `uv sync --group dev`, `uv run pytest`, `uv run ruff check .`, `uv build`. Paid HTTP is mocked in tests; native Agent/Task/Crew cycles use a deterministic local model fixture. See `tests/contract-source.json` for immutable service contract provenance and `tests/live-readonly-evidence.json` when an old-task check is available. No new paid request runs in CI.
-
-The pinned source and preview.2 include explicit failed-state handling before finished_at. Historical preview.1 remains unchanged; use the pinned fixed version above.

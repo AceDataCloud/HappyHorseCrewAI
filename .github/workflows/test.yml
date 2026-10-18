@@ -22,3 +22,8 @@ jobs:
           uv venv /tmp/service-wheel --python ${{ matrix.python }}
           uv pip install --python /tmp/service-wheel/bin/python dist/crewai_happyhorse-0.1.0-py3-none-any.whl
           /tmp/service-wheel/bin/python -c 'from happyhorse_crewai import HappyHorseGenerateVideoTool, HappyHorseRetrieveTaskTool; t = HappyHorseRetrieveTaskTool(api_key="fixture"); assert "fixture" not in str(t.model_dump()); assert "task_id" in t.args_schema.model_fields; print("clean wheel import and schema passed")'
+      - name: Install and inspect public stable wheel
+        run: |
+          uv venv /tmp/public-service-wheel --python ${{ matrix.python }}
+          uv pip install --python /tmp/public-service-wheel/bin/python 'crewai-happyhorse @ https://github.com/AceDataCloud/HappyHorseCrewAI/releases/download/v0.1.0/crewai_happyhorse-0.1.0-py3-none-any.whl#sha256=a8f111bcec1be13c8c7cae792c6301cb5c651bc5d11eb00a44241659b3d95c92'
+          /tmp/public-service-wheel/bin/python -c 'from happyhorse_crewai import HappyHorseRetrieveTaskTool; from importlib.metadata import version; t=HappyHorseRetrieveTaskTool(api_key="fixture"); assert version("crewai-happyhorse")=="0.1.0"; assert "fixture" not in str(t.model_dump()); assert "task_id" in t.args_schema.model_fields; print("public stable wheel full-install verified")'
