@@ -4,7 +4,13 @@
 
 ## 安装正式版本
 
-Ace维护的独立 **HappyHorse** CrewAI原生工具已合并main并发布 **0.1.0**。这不是CrewAI/AMP官方目录收录，PyPI尚未发布；先用公开wheel并校验固定SHA256：
+Ace 维护的独立 **HappyHorse** CrewAI 原生工具已发布 [PyPI 0.1.0](https://pypi.org/project/crewai-happyhorse/0.1.0/)，可按包名安装：
+
+```bash
+uv add crewai-happyhorse==0.1.0
+```
+
+也可以安装同一版本的 GitHub wheel，并校验固定 SHA256：
 
 ```bash
 uv add 'crewai-happyhorse @ https://github.com/AceDataCloud/HappyHorseCrewAI/releases/download/v0.1.0/crewai_happyhorse-0.1.0-py3-none-any.whl#sha256=a8f111bcec1be13c8c7cae792c6301cb5c651bc5d11eb00a44241659b3d95c92'
@@ -16,7 +22,7 @@ uv add 'crewai-happyhorse @ https://github.com/AceDataCloud/HappyHorseCrewAI/rel
 uv add 'crewai-happyhorse @ git+https://github.com/AceDataCloud/HappyHorseCrewAI.git@700945e95b53786329f16e722d61b6af4b3d1c1b'
 ```
 
-[正式发行](https://github.com/AceDataCloud/HappyHorseCrewAI/releases/tag/v0.1.0) · [合并源码](https://github.com/AceDataCloud/HappyHorseCrewAI/commit/700945e95b53786329f16e722d61b6af4b3d1c1b)。tag/页面只提供信息，源码SHA或wheel摘要才绑定实际字节。旧preview保留不变，不再推荐。共享PyPI新建项目配额恢复、现有发布身份成功上传并registry读回后，才可使用普通 `uv add crewai-happyhorse`，目前不冒称可用。
+[正式发行](https://github.com/AceDataCloud/HappyHorseCrewAI/releases/tag/v0.1.0) · [合并源码](https://github.com/AceDataCloud/HappyHorseCrewAI/commit/700945e95b53786329f16e722d61b6af4b3d1c1b)。tag/页面只提供信息，源码SHA或wheel摘要才绑定实际字节。旧preview保留不变，不再推荐。PyPI 上的 wheel 和源码包与现有 GitHub 发行资产的 SHA256 完全一致。PyPI 发布不代表 CrewAI/AMP 官方目录已收录。
 
 Python3.10–3.13。Linux完整依赖/测试/干净wheel已通过；Intel macOS可能缺lancedb wheel，正式使用选择支持Linux，不跳依赖冒充完整安装。
 
